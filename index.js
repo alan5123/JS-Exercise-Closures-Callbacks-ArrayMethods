@@ -67,7 +67,7 @@ function processLength(list, callback) {
  * should return 'barbar'.
 */
 function processLastItem(stringlist, callback) {
-  return callback(stringlist[1])
+  return callback(stringlist[stringlist.length-1])
 }
 
 /**
@@ -88,8 +88,8 @@ function processLastItem(stringlist, callback) {
  * should return 1000.
 */
 function processSum(numberlist, callback) {
-  const reducer = (accumulator, value) => accumulator + value;
-  return callback(numberlist.reduce(reducer, 0) )
+  const sum = (accumulator, value) => accumulator + value;
+  return callback(numberlist.reduce(sum, 0) )
 }
 
 /**
@@ -162,7 +162,7 @@ function processContains(item, list, callback) {
 function processDuplicateFree(list, callback) {
   const newarr = new Set(list);
   
-   return callback(Array.from(newarr))
+   return callback(Array.from(newarr)) 
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -188,7 +188,7 @@ function getFullNames(runners) {
 
   runners.forEach(function(runners){
 
-    return names.push(`${runners.last_name}, ${runners.first_name}`)
+    names.push(`${runners.last_name}, ${runners.first_name}`)
   });
   return names
 }
@@ -303,7 +303,7 @@ function counterMakerWithLimit(max) {
     }
     return count++;
 }
-return count;
+
 }
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
